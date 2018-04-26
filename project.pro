@@ -1,4 +1,4 @@
-#-------------------------------------------------
+j#-------------------------------------------------
 #
 # Project created by QtCreator 2018-04-20T16:55:52
 #
@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = project
 TEMPLATE = app
@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     lightsource.cpp \
-    device.cpp
+    device.cpp \
+    qcustomplot.cpp
 
 HEADERS  += mainwindow.h \
     device.h \
-    lightsource.h
+    lightsource.h \
+    qcustomplot.h
 
 FORMS    += mainwindow.ui
