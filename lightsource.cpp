@@ -18,7 +18,7 @@ Lightsource Lightsource::operator+=(const Lightsource& b) {
     double new_phase = b.phase + 2 * pi * (r / lambda);
     double res_phase = atan((amplitude * sin(new_phase) + b.amplitude * sin(b.phase)) /
                             (amplitude * cos(new_phase) + b.amplitude*cos(b.phase)));
-    double res_amplitude = amplitude*amplitude + b.amplitude*b.amplitude + 2*amplitude*b.amplitude*cos(b.phase - new_phase);
+    double res_amplitude = amplitude*amplitude + b.amplitude*b.amplitude/r/r - 2*amplitude*b.amplitude /r *cos(b.phase - new_phase);
     amplitude = res_amplitude;
     phase = res_phase;
     return *this;
@@ -31,3 +31,10 @@ void Lightsource::Debug () {
     cout << "phase = " << phase << endl;
 
 }
+
+double Lightsource::ReturnAmpl() const {
+    return amplitude;
+};
+double Lightsource::ReturnPh() const {
+    return phase;
+};
