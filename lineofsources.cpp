@@ -1,5 +1,6 @@
 #include "lineofsources.h"
 #include <math.h>
+#include <stdio.h>
 
 
 LineOfSources::LineOfSources()
@@ -31,4 +32,19 @@ void LineOfSources::Debug () {
     }
     cout << "----------------------------------------" << endl;
 }
+
+string LineOfSources::print()
+{
+    string result;
+    for (int i = 0; i < numberOfSources; i++)
+    {
+        string _ampl;
+        string _x;
+        double a = sources[i].returnAmpl();
+        double b = sources[i].returnX();
+        result += std::to_string(a) + "," + std::to_string(b) + "\n";
+    }
+    return result;
+};
+
 

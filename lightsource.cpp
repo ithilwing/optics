@@ -74,3 +74,13 @@ double myAtan(double x, double y)
     
 };
 
+
+double Lightsource::returnAmpl()
+{
+    return amplitude;
+}
+
+double Lightsource::returnX()
+{
+    return x;
+}

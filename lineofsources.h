@@ -17,6 +17,8 @@ public:
     LineOfSources(double amplitude, double phase, double y);
     LineOfSources(double new_y, const LineOfSources& prev_line);
     void Debug ();
+    string print();
+    
 };
 
 
