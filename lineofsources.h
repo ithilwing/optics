@@ -10,15 +10,13 @@ using namespace std;
 
 class LineOfSources
 {
-private:
+public:
     vector <Lightsource> sources;  //вектор из lightsource которы называется sources
 public:
     LineOfSources();
     LineOfSources(double amplitude, double phase, double y);
     LineOfSources(double new_y, const LineOfSources& prev_line);
     void Debug ();
-    double firstAmpl() const;
-    double firstPh() const;
 };
 
 
