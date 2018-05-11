@@ -1,6 +1,8 @@
 #include "lineofsources.h"
 #include <math.h>
 #include <stdio.h>
+#include <string>
+#include <iostream>
 
 
 LineOfSources::LineOfSources()
@@ -40,11 +42,27 @@ string LineOfSources::print()
     {
         string _ampl;
         string _x;
-        double a = sources[i].returnAmpl();
-        double b = sources[i].returnX();
+        double a = sources[i].ReturnAmpl();
+        double b = sources[i].ReturnX();
         result += std::to_string(a) + "," + std::to_string(b) + "\n";
     }
     return result;
+};
+
+pair<double,double> LineOfSources::Graph(int i) const{
+    pair<double, double> a;
+    a.first = sources[i].ReturnX();
+    a.second = sources[i].ReturnAmpl();
+    return a;
+}
+
+
+double LineOfSources::firstAmpl() const{
+    return sources[0].ReturnAmpl();
+};
+
+double LineOfSources::firstPh() const{
+    return sources[0].ReturnPh();
 };
 
 

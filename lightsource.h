@@ -16,8 +16,9 @@ public:
     Lightsource operator+=(const Lightsource& b);
     void Debug ();
     
-    double returnAmpl();
-    double returnX();
+    double ReturnX () const;
+        double ReturnAmpl() const;
+        double ReturnPh() const;
 };
 
 #endif // LIGHTSOURCE_H

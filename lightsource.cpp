@@ -75,12 +75,13 @@ double myAtan(double x, double y)
 };
 
 
-double Lightsource::returnAmpl()
-{
-    return amplitude;
-}
-
-double Lightsource::returnX()
-{
+double Lightsource::ReturnX() const {
     return x;
-}
+};
+
+double Lightsource::ReturnAmpl() const {
+    return amplitude;
+};
+double Lightsource::ReturnPh() const {
+    return phase;
+};

@@ -16,11 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     lightsource.cpp \
     device.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    lineofsources.cpp \
+    grid.cpp
 
 HEADERS  += mainwindow.h \
     device.h \
     lightsource.h \
-    qcustomplot.h
+    qcustomplot.h \
+    constants.h \
+    lineofsources.h \
+    grid.h
 
 FORMS    += mainwindow.ui

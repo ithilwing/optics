@@ -1,14 +1,14 @@
-//#include "mainwindow.h"
-//#include <QApplication>
+#include "mainwindow.h"
+#include <QApplication>
 #include <iostream>
 #include "lineofsources.h"
 #include <fstream>
 
 int main(int argc, char *argv[])
 {
-    //QApplication a(argc, argv);
-    //MainWindow w;
-    //w.show();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
 
     
     std::cout << "Hello, world" << std::endl;
@@ -57,5 +57,5 @@ int main(int argc, char *argv[])
     file.open("data.txt");
     file << final_line.print();
 
-    // return a.exec();
+     return a.exec();
 }

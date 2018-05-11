@@ -12,11 +12,14 @@ class LineOfSources
 {
 public:
     vector <Lightsource> sources;  //вектор из lightsource которы называется sources
-public:
     LineOfSources();
     LineOfSources(double amplitude, double phase, double y);
     LineOfSources(double new_y, const LineOfSources& prev_line);
     void Debug ();
+    double GraphAmpl();
+    double firstAmpl() const;
+    double firstPh() const;
+    pair<double,double> Graph(int i) const;
     string print();
     
 };
