@@ -15,13 +15,14 @@ Lightsource::Lightsource(double _amplitude, double _phase, double _x, double _y)
 
 Lightsource Lightsource::operator+=(const Lightsource& b) {
     double r = sqrt((x - b.x)*(x - b.x) + (y - b.y)*(y - b.y));
+    double b_amplitude = b.amplitude / r;
     double new_phase = b.phase + 2 * pi * (r / lambda);
-    double dx = (amplitude * sin(phase) + b.amplitude * sin(new_phase));
-    double dy = (amplitude * cos(phase) + b.amplitude*cos(new_phase));
+    double dx = (amplitude * sin(phase) + b_amplitude * sin(new_phase));
+    double dy = (amplitude * cos(phase) + b_amplitude*cos(new_phase));
     double res_phase = myAtan(dx, dy);
     //double res_phase = atan(dx/dy);
-    double res_amplitude = sqrt((amplitude*amplitude + b.amplitude*b.amplitude
-                                 + 2*amplitude*b.amplitude * cos(phase - new_phase)));
+    double res_amplitude = sqrt((amplitude*amplitude + b_amplitude*b_amplitude
+                                 + 2*amplitude*b_amplitude * cos(phase - new_phase)));
     if (res_amplitude < 0.00001) {
         res_phase = 0;
     }

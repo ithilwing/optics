@@ -21,6 +21,7 @@ public:
     double firstPh() const;
     pair<double,double> Graph(int i) const;
     string print();
+    double MaxAmpl () const;
     
 };
 

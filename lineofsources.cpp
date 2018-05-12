@@ -5,6 +5,7 @@
 #include <iostream>
 
 
+
 LineOfSources::LineOfSources()
 {
 
@@ -22,8 +23,11 @@ LineOfSources::LineOfSources(double new_y, const LineOfSources& prev_line){
         for (int k = 0; k < numberOfSources; k++){
            sources[i] += prev_line.sources[k];
         }
-        
+    }
 
+    auto m = MaxAmpl();
+    for (auto& s : sources) {
+        s.amplitude /= m;
     }
 }
 
@@ -63,6 +67,16 @@ double LineOfSources::firstAmpl() const{
 
 double LineOfSources::firstPh() const{
     return sources[0].ReturnPh();
+};
+
+double LineOfSources::MaxAmpl() const{
+    double MaxAmpl = 0 ;
+    for (int k = 0; k < numberOfSources; k++){
+        if (sources[k].ReturnAmpl() >= MaxAmpl) {
+            MaxAmpl = sources[k].ReturnAmpl();
+        };
+    };
+    return MaxAmpl;
 };
 
 

@@ -5,12 +5,13 @@ double myAtan(double x, double y);
 
 class Lightsource
 {
-private:
-    double amplitude;
+//private:
+
+public:
     double phase;
     double x;
     double y;
-public:
+    double amplitude;
     Lightsource();
     Lightsource(double _amplitude, double _phase, double _x, double _y);
     Lightsource operator+=(const Lightsource& b);

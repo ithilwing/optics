@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
     double Y = 0;
     
     LineOfSources line(0, Ph, Y);
-    line.sources[40] = Lightsource(A, Ph, 0.4, Y);
-    line.sources[61] = Lightsource(A, Ph, 0.61, Y);
+  //  line.sources[40] = Lightsource(A, Ph, 0.4, Y);
+  //  line.sources[61] = Lightsource(A, Ph, 0.61, Y);
     line.Debug();
 //    LineOfSources line2(1.0, line);
 //    line2.Debug();
