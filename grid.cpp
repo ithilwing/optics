@@ -10,8 +10,10 @@ LineOfSources Grid::ModifyLine ( LineOfSources& prevLine) {
     double N = 10;//params["N"];
     double b = 0.05;//params["b"];
     double lx = 0;//params["lx"];
+	double y = 0.5; // координата по y
 
-    LineOfSources newLine = prevLine;
+	LineOfSources line_to_modify(y, prevLine);
+	LineOfSources newLine = line_to_modify;
 
     for(int k = 0; k < numberOfSources; k ++){
         for (int i = 0; i < N; i++){
