@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     device.cpp \
     qcustomplot.cpp \
     lineofsources.cpp \
-    grid.cpp
+    grid.cpp \
+    lens.cpp \
+    slit.cpp
 
 HEADERS  += mainwindow.h \
     device.h \
@@ -26,6 +28,8 @@ HEADERS  += mainwindow.h \
     qcustomplot.h \
     constants.h \
     lineofsources.h \
-    grid.h
+    grid.h \
+    lens.h \
+    slit.h
 
 FORMS    += mainwindow.ui

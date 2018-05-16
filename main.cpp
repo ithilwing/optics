@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     LineOfSources line(0, Ph, Y);
   //  line.sources[40] = Lightsource(A, Ph, 0.4, Y);
   //  line.sources[61] = Lightsource(A, Ph, 0.61, Y);
-    line.Debug();
+ //   line.Debug();
 //    LineOfSources line2(1.0, line);
 //    line2.Debug();
 //    LineOfSources line3(2.0, line2);
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 //    line10.Debug();
     
     LineOfSources final_line(1.0, line);
-    final_line.Debug();
+ //   final_line.Debug();
     
     
 //    cout << myAtan(1, 0.5)*180/pi << endl;

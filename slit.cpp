@@ -15,15 +15,24 @@ LineOfSources Slit::ModifyLine(LineOfSources& prevLine) {
 
 	double x_0 = (1 - 2*b - d) / 2;
 
-	for (int k = 0; k < (numberOfSources/x_0); k++) {
-				newLine.sources[k].amplitude = 0;
-	};
-	for (int k = (numberOfSources / (x_0 + b)); k < (numberOfSources / (x_0 + b + d)); k++) {
-		newLine.sources[k].amplitude = 0;
-	};
-	for (int k = (numberOfSources / (x_0 + 2*b + d)); k < numberOfSources; k++) {
-		newLine.sources[k].amplitude = 0;
-	};
+        std::cout << x_0 << std::endl;
+            std::cout << x_0 / dSources << std::endl;
+            std::cout << dSources / (x_0 + b) << std::endl;
+            std::cout << dSources / (x_0 + b + d) << std::endl;
+
+
+
+    for (int k = 0; k < (int)( x_0 / dSources); k++) {
+                newLine.sources[k].amplitude = 0;
+    };
+    for (int k = (int)( (x_0 + b)/dSources); k < (int)((x_0 + b + d)/dSources); k++) {
+        newLine.sources[k].amplitude = 0;
+    };
+    for (int k = (int)((x_0 + 2*b + d)/dSources); k < numberOfSources; k++) {
+        newLine.sources[k].amplitude = 0;
+    };
+
+
 
 	return newLine;
 }

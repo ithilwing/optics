@@ -5,6 +5,7 @@
 #include "constants.h"
 #include "device.h"
 #include "grid.h"
+#include "slit.h"
 
 double A = 1;
 double Ph = 100;
@@ -23,22 +24,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+vector<Device*> devices;
+
 void MainWindow::on_pushButton_clicked() // кнопка
 {
     LineOfSources line(A, Ph, Y);
    // line.Debug();
     //Grid *grid = new Grid();
-    Device* device = new Grid();
+  //  Device* device = new Grid();
+    Device* device = new Slit();
     LineOfSources curr_line = device->ModifyLine(line);
    // LineOfSources final = curr_line;
-   LineOfSources final(10, curr_line);
+   LineOfSources final(1, curr_line);
     //LineOfSources final = curr_line;
 
-    final.Debug();
+  //  final.Debug();
       std::cout << final.MaxAmpl() << std::endl;
 
     QVector<double> x(numberOfSources), y(numberOfSources);
-    for (int i=0; i<numberOfSources; ++i)
+    for (int i=0; i<numberOfSources; i++)
     {
 
       x[i] = final.Graph(i).first;
