@@ -1,5 +1,6 @@
 #include "lens.h"
 #include "device.h"
+#include <math.h>
 
 Lens::Lens() {}
 LineOfSources Lens::ModifyLine(LineOfSources& prevLine) {
