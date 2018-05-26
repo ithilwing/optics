@@ -9,6 +9,9 @@
 #include "lens.h"
 #include "factory.h"
 #include "vector"
+#include <iostream>
+#include <fstream>
+#include <QFile>
 
 using namespace std;
 
@@ -36,16 +39,34 @@ void MainWindow::on_pushButton_clicked() // кнопка
     LineOfSources line(A, Ph, Y);
     Factory f;
    // line.Debug();
-    //Grid *grid = new Grid();
-//    GridFactory* grid = new Grid;
-//    SlitFactory* slit = new Slit;
- //   vector<>
-  // Device* device = new Grid();
+
         Device* grid = f.createDevice("Grid");
         Device* slit = f.createDevice("Slit");
-  //  Device* lens = new Lens();
-  //  LineOfSources curr_line = lens->ModifyLine(line);
-  // Device* grid = new Grid();
+
+        char grid_params[50];
+            ifstream fin("grid.txt");
+            fin.getline(grid_params, 50);
+            fin.close();
+            cout << grid_params << endl;
+
+        char slit_params[50];
+            ifstream fin1("slit.txt");
+            fin1.getline(slit_params, 50);
+            fin1.close();
+            cout << slit_params << endl;
+
+    /* тут будет извлекание строк, разделение и берем последний элемент - координату по у
+        if (grid_y < slit_y){
+            LineOfSources curr_line = grid->ModifyLine(line);
+            LineOfSources curr_line1 = slit->ModifyLine(curr_line);
+            LineOfSources final(1, curr_line1);
+        }
+        else {
+            LineOfSources curr_line = slit->ModifyLine(line);
+            LineOfSources curr_line1 = grid->ModifyLine(curr_line);
+            LineOfSources final(1, curr_line1);
+        }
+      */
 
     LineOfSources curr_line = grid->ModifyLine(line);
     LineOfSources curr_line1 = slit->ModifyLine(curr_line);
@@ -82,4 +103,44 @@ void MainWindow::on_pushButton_clicked() // кнопка
 void MainWindow::on_textEdit_copyAvailable(bool b)
 {
 
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QFile grid_data("./grid.txt");
+    grid_data.open(QIODevice::WriteOnly | QIODevice::Text);
+    QApplication::processEvents();
+
+    QString g_data = ui->lineEdit->text();
+    QTextStream out(&grid_data);
+    out << g_data;
+}
+
+
+void MainWindow::on_lineEdit_returnPressed()
+{
+
+
+}
+
+
+void MainWindow::on_lineEdit_editingFinished()
+{
+
+}
+
+void MainWindow::on_lineEdit_2_returnPressed()
+{
+
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QFile slit_data("./slit.txt");
+    slit_data.open(QIODevice::WriteOnly | QIODevice::Text);
+    QApplication::processEvents();
+
+    QString s_data = ui->lineEdit_2->text();
+    QTextStream out(&slit_data);
+    out << s_data;
 }

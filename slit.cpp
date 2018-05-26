@@ -1,11 +1,20 @@
 #include "slit.h"
 #include "device.h"
+#include <iostream>
+#include <fstream>
 
 Slit::Slit() {}
 LineOfSources Slit::ModifyLine(LineOfSources& prevLine) {
 	/*for(int i = 0; i <= 4; i++){
 	params.insert ( pair<string,double> ("d",0.01) );
 	}*/
+
+    char slit_params[50];
+        ifstream fin("slit.txt");
+        fin.getline(slit_params, 50);
+        fin.close();
+        cout << slit_params << endl;
+
 	double d = 0.1;// params["d"]; расстояние между щелями
 	double b = 0.05;//params["b"];  ширина щели
     double y = 0.52;//params["y"];

@@ -4,12 +4,21 @@
 #include "stdlib.h"
 #include <iostream>
 #include <fstream>
+#include <QFile>
+#include <QString>
 
 
 Grid::Grid(){}
 
 
 LineOfSources Grid::ModifyLine ( LineOfSources& prevLine  ) {
+
+    char grid_params[50];
+        ifstream fin("grid.txt");
+        fin.getline(grid_params, 50);
+        fin.close();
+        cout << grid_params << endl;
+
     /*double d;
     double N;
     double b;
