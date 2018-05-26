@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     lineofsources.cpp \
     grid.cpp \
     lens.cpp \
-    slit.cpp
+    slit.cpp \
+    parcer.cpp
 
 HEADERS  += mainwindow.h \
     device.h \
@@ -31,6 +32,7 @@ HEADERS  += mainwindow.h \
     grid.h \
     lens.h \
     slit.h \
-    factory.h
+    factory.h \
+    parcer.h
 
 FORMS    += mainwindow.ui

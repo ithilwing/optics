@@ -6,6 +6,7 @@
 #include <fstream>
 #include <QFile>
 #include <QString>
+#include "parcer.h"
 
 
 Grid::Grid(){}
@@ -19,22 +20,27 @@ LineOfSources Grid::ModifyLine ( LineOfSources& prevLine  ) {
         fin.close();
         cout << grid_params << endl;
 
-    /*double d;
-    double N;
-    double b;
-    double lx;
-    double y;*/
+    double d = 0;
+    double N = 0;
+    double b = 0;
+    double lx = 0;
+    double y = 0;
+
    // std::cout << "vvedite d, N, b, lx, y" << std::endl;
     //std::cin >> d >> N >> b >> lx >> y;
 
     /*for(int i = 0; i <= 4; i++){
         params.insert ( pair<string,double> ("d",0.01) );
     }*/
-    double d = 0.1;// params["d"];
-    double N = 10;//params["N"];
-    double b = 0.05;//params["b"];
-    double lx = 0;//params["lx"];
-    double y = 0.5; // координата по y*/
+
+        if(brkFind(grid_params, 5))
+        {
+             d = (double)atof(brkFind(grid_params, 1));// params["d"];
+             N = (double)atof(brkFind(grid_params, 2));//params["N"];
+             b = (double)atof(brkFind(grid_params, 3));//params["b"];
+             lx = (double)atof(brkFind(grid_params, 4));//params["lx"];
+             y = (double)atof(brkFind(grid_params, 5)); // координата по y*/
+        }
 
 	LineOfSources line_to_modify(y, prevLine);
 	LineOfSources newLine = line_to_modify;

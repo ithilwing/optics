@@ -12,7 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <QFile>
-
+#include "parcer.h"
 using namespace std;
 
 
@@ -43,37 +43,65 @@ void MainWindow::on_pushButton_clicked() // кнопка
         Device* grid = f.createDevice("Grid");
         Device* slit = f.createDevice("Slit");
 
-        char grid_params[50];
-            ifstream fin("grid.txt");
-            fin.getline(grid_params, 50);
-            fin.close();
-            cout << grid_params << endl;
 
         char slit_params[50];
-            ifstream fin1("slit.txt");
-            fin1.getline(slit_params, 50);
-            fin1.close();
+            ifstream fin("slit.txt");
+            fin.getline(slit_params, 50);
+            fin.close();
             cout << slit_params << endl;
 
-    /* тут будет извлекание строк, разделение и берем последний элемент - координату по у
+            double grid_y = 0;
+            double slit_y = 0;
+
+            if (brkFind(slit_params, 3))
+            {
+                slit_y = (double)atof(brkFind(slit_params, 3));//params["y"];
+            }
+
+        char grid_params[50];
+            ifstream fin1("grid.txt");
+            fin1.getline(grid_params, 50);
+            fin1.close();
+            cout << grid_params << endl;
+
+            if(brkFind(grid_params, 5))
+            {
+                grid_y = (double)atof(brkFind(grid_params, 5)); // координата по y*/
+            }
+        LineOfSources final (0, line);
+        if (grid_y != 0 && slit_y != 0){
         if (grid_y < slit_y){
             LineOfSources curr_line = grid->ModifyLine(line);
             LineOfSources curr_line1 = slit->ModifyLine(curr_line);
-            LineOfSources final(1, curr_line1);
+            final = LineOfSources(1, curr_line1);
         }
         else {
             LineOfSources curr_line = slit->ModifyLine(line);
             LineOfSources curr_line1 = grid->ModifyLine(curr_line);
-            LineOfSources final(1, curr_line1);
+           final = LineOfSources(1, curr_line1);
         }
-      */
+        }
+        else{
+            if (grid_y == 0 && slit_y != 0){
+                LineOfSources curr_line = slit->ModifyLine(line);
+                final = LineOfSources(1, curr_line);
+            }
+            if (grid_y != 0 && slit_y == 0){
+                LineOfSources curr_line = grid->ModifyLine(line);
+               final = LineOfSources(1, curr_line);
+            }
+            if (grid_y == 0 && slit_y == 0){
+               final = LineOfSources(1, line);
+            }
+        }
 
-    LineOfSources curr_line = grid->ModifyLine(line);
-    LineOfSources curr_line1 = slit->ModifyLine(curr_line);
+
+    //LineOfSources curr_line = grid->ModifyLine(line);
+  //LineOfSources curr_line1 = slit->ModifyLine(curr_line);
 //    LineOfSources curr_line = grid->ModifyLine(line);
    // LineOfSources final = curr_line;
-   LineOfSources final(1, curr_line1);
-    //LineOfSources final = curr_line;
+ //  LineOfSources final(1, curr_line1);
+   // LineOfSources final = curr_line;
 
   //  final.Debug();
       std::cout << final.MaxAmpl() << std::endl;
