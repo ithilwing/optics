@@ -8,7 +8,7 @@ LineOfSources Slit::ModifyLine(LineOfSources& prevLine) {
 	}*/
 	double d = 0.1;// params["d"]; расстояние между щелями
 	double b = 0.05;//params["b"];  ширина щели
-	double y = 0.5;//params["y"];
+    double y = 0.52;//params["y"];
 
 	LineOfSources line_to_modify(y, prevLine);
 	LineOfSources newLine = line_to_modify;

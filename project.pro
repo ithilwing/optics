@@ -30,6 +30,7 @@ HEADERS  += mainwindow.h \
     lineofsources.h \
     grid.h \
     lens.h \
-    slit.h
+    slit.h \
+    factory.h
 
 FORMS    += mainwindow.ui

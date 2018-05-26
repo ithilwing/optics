@@ -1,8 +1,23 @@
 #include "grid.h"
 #include "device.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include <iostream>
+#include <fstream>
+
 
 Grid::Grid(){}
-LineOfSources Grid::ModifyLine ( LineOfSources& prevLine) {
+
+
+LineOfSources Grid::ModifyLine ( LineOfSources& prevLine  ) {
+    /*double d;
+    double N;
+    double b;
+    double lx;
+    double y;*/
+   // std::cout << "vvedite d, N, b, lx, y" << std::endl;
+    //std::cin >> d >> N >> b >> lx >> y;
+
     /*for(int i = 0; i <= 4; i++){
         params.insert ( pair<string,double> ("d",0.01) );
     }*/
@@ -10,7 +25,7 @@ LineOfSources Grid::ModifyLine ( LineOfSources& prevLine) {
     double N = 10;//params["N"];
     double b = 0.05;//params["b"];
     double lx = 0;//params["lx"];
-	double y = 0.5; // координата по y
+    double y = 0.5; // координата по y*/
 
 	LineOfSources line_to_modify(y, prevLine);
 	LineOfSources newLine = line_to_modify;

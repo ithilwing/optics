@@ -6,10 +6,13 @@
 #include "device.h"
 #include "grid.h"
 #include "slit.h"
+#include "lens.h"
+#include "factory.h"
+#include "vector"
 
-double A = 1;
-double Ph = 100;
-double Y = 0;
+using namespace std;
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,15 +30,28 @@ MainWindow::~MainWindow()
 vector<Device*> devices;
 
 void MainWindow::on_pushButton_clicked() // кнопка
-{
+{ 
+
+     //vector<double> _params {d, N, b, lx, y};
     LineOfSources line(A, Ph, Y);
+    Factory f;
    // line.Debug();
     //Grid *grid = new Grid();
-  //  Device* device = new Grid();
-    Device* device = new Slit();
-    LineOfSources curr_line = device->ModifyLine(line);
+//    GridFactory* grid = new Grid;
+//    SlitFactory* slit = new Slit;
+ //   vector<>
+  // Device* device = new Grid();
+        Device* grid = f.createDevice("Grid");
+        Device* slit = f.createDevice("Slit");
+  //  Device* lens = new Lens();
+  //  LineOfSources curr_line = lens->ModifyLine(line);
+  // Device* grid = new Grid();
+
+    LineOfSources curr_line = grid->ModifyLine(line);
+    LineOfSources curr_line1 = slit->ModifyLine(curr_line);
+//    LineOfSources curr_line = grid->ModifyLine(line);
    // LineOfSources final = curr_line;
-   LineOfSources final(1, curr_line);
+   LineOfSources final(1, curr_line1);
     //LineOfSources final = curr_line;
 
   //  final.Debug();
@@ -61,4 +77,9 @@ void MainWindow::on_pushButton_clicked() // кнопка
     ui->widget->yAxis->setRange(0, 1);
 //     ui->widget->yAxis->setRange(0, 100000);
     ui->widget->replot();
+}
+
+void MainWindow::on_textEdit_copyAvailable(bool b)
+{
+
 }

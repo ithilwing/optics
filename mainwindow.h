@@ -18,6 +18,8 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_textEdit_copyAvailable(bool b);
+
 private:
     Ui::MainWindow *ui;
 };
